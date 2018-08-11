@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import EditableInput from '../../Input/EditableInput';
+
 import './List.css';
 
 export default class List extends Component {
   render() {
     return (
-      <div>
+      <div className="list__wrapper">
         <table>
           <thead>
             <tr>
@@ -16,13 +18,40 @@ export default class List extends Component {
           </thead>
           <tbody>
             {
-              this.props.items.map(item => (
-                <tr  key={item._id}>
-                  <td><input type="checkbox" defaultChecked={item.completed} /></td>
-                  <td>{ item.title }</td>
-                  <td>{ item.description }</td>
-                </tr>
-              ))
+              this.props.items.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <input
+                        onInput={this.props.completedCallback}
+                        data-index={index}
+                        type="checkbox"
+                        defaultChecked={item.completed}
+                      />
+                    </td>
+
+                    <td>
+                      <EditableInput
+                        text={item.title}
+                        changeCallback={this.props.titleChange}
+                        blurCallback={this.props.blurCallback}
+                        editing={item.editingTitle}
+                        index={index}
+                      />
+                    </td>
+
+                    <td>
+                      <EditableInput
+                        text={item.description}
+                        changeCallback={this.props.descriptionChange}
+                        blurCallback={this.props.blurCallback}
+                        editing={item.editingDescription}
+                        index={index}
+                      />
+                    </td>
+                  </tr>
+                )
+              })
             }
           </tbody>
         </table>
