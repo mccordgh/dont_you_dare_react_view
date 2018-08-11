@@ -12,7 +12,15 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content__wrapper">
-        <List items={this.state.items} />
+        <List
+          items={this.state.items}
+          titleChange={this.titleChangeHandler}
+          descriptionChange={this.descriptionChangeHandler}
+          blurCallback={this.blurHandler}
+          completedCallback={this.completedChangeHandler}
+        />
+
+        <button onClick={this.addButtonHandler}>Add Item</button>
       </div>
     );
   }
