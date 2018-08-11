@@ -79,7 +79,7 @@ export default class Content extends Component {
     fetch('http://localhost:8001/items', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset-utf-8',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(itemObj),
     })
