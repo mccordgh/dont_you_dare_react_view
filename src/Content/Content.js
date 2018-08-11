@@ -18,16 +18,125 @@ export default class Content extends Component {
   }
 
   componentWillMount() {
+    this.fetchItems();
+  }
+
+  fetchItems = () => {
     fetch('http://localhost:8001/items', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json; charset-utf-8',
-      },
     })
     .then(response => response.json())
     .then((data) => {
-      data = data.map(item => Object.assign(item, { completed: (item.completed === 'true')}))
+      data = data.map(item => Object.assign(item, {
+        editingTitle: !item.title,
+        editingDescription: !item.description,
+      }));
+
       this.setState({ items: data });
     });
+  }
+
+  titleChangeHandler = (event) => {
+    const title = event.target.value;
+    const index = event.target.dataset.index;
+    const items = this.state.items;
+
+    items[index] = Object.assign(items[index], { title });
+    this.setState({ items });
+  }
+
+  blurHandler = (event) => {
+    const index = event.target.dataset.index;
+    const item = this.state.items[index];
+
+    this.updateOrCreateItem(item, index);
+  }
+
+  updateOrCreateItem(item, index) {
+    if (item._id) {
+      this.updateItem(index);
+    } else {
+      this.createItem(index)
+    }
+  }
+
+  createItem(index) {
+    const item = this.state.items[index];
+    const itemObj = {
+      title: item.title,
+      description: item.description,
+      completed: item.completed,
+    }
+
+    fetch('http://localhost:8001/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset-utf-8',
+      },
+      body: JSON.stringify(itemObj),
+    })
+    .then(response => response.json())
+    .then((data) => {
+      this.fetchItems();
+    });
+  }
+
+  updateItem(index) {
+    const item = this.state.items[index];
+    const itemObj = {
+      id: item._id,
+      title: item.title,
+      description: item.description,
+      completed: item.completed,
+    }
+
+    fetch(`http://localhost:8001/items/${item._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(itemObj),
+    })
+    .then(response => response.json())
+    .then((data) => {
+      this.fetchItems();
+    });
+  }
+
+  descriptionChangeHandler = (event) => {
+    const description = event.target.value;
+    const index = event.target.dataset.index;
+    const items = this.state.items;
+
+    items[index] = Object.assign(items[index], { description });
+    this.setState({ items });
+  }
+
+  completedChangeHandler = (event) => {
+    const index = event.target.dataset.index;
+    const items = this.state.items;
+    const item = this.state.items[index];
+
+    items[index] = Object.assign(items[index], { completed: !item.completed})
+    this.setState(() => {
+      return { items };
+    }, () => {
+      this.updateOrCreateItem(item, index);
+    });
+  }
+
+  addButtonHandler = () => {
+    this.setState((state) => {
+      state.items.push({
+        id: null,
+        completed: false,
+        title: '',
+        description: '',
+        editingTitle: true,
+        editingDescription: true,
+      })
+
+      return { items: state.items }
+    })
   }
 }
