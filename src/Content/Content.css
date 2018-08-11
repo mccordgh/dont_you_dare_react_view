@@ -1,3 +1,7 @@
 .content__wrapper {
     padding: 2rem;
 }
+
+button {
+    padding: 1rem 2rem;
+}
