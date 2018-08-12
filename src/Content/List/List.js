@@ -9,12 +9,6 @@ export default class List extends Component {
     return (
       <div className="list__wrapper">
         <table>
-          <thead>
-            <tr>
-              <th>Completed</th>
-              <th>Title</th>
-            </tr>
-          </thead>
           <tbody>
             {
               this.props.items.map((item, index) => {
