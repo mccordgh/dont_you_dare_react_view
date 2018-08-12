@@ -18,6 +18,7 @@ export default class Content extends Component {
           descriptionChange={this.descriptionChangeHandler}
           blurCallback={this.blurHandler}
           completedCallback={this.completedChangeHandler}
+          deleteCallback={this.deleteItem}
         />
 
         <button onClick={this.addButtonHandler}>Add Item</button>
@@ -84,6 +85,18 @@ export default class Content extends Component {
       body: JSON.stringify(itemObj),
     })
     .then(response => response.json())
+    .then((data) => {
+      this.fetchItems();
+    });
+  }
+
+  deleteItem = (event) => {
+    const index = event.target.dataset.index;
+    const item = this.state.items[index];
+
+    fetch(`http://localhost:8001/items/${item._id}`, {
+      method: 'DELETE',
+    })
     .then((data) => {
       this.fetchItems();
     });

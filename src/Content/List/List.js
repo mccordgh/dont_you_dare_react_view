@@ -49,6 +49,15 @@ export default class List extends Component {
                         index={index}
                       />
                     </td>
+                    <td>
+                      <button
+                        onClick={this.props.deleteCallback}
+                        className="delete__item-button"
+                        data-index={index}
+                      >
+                        X
+                      </button>
+                    </td>
                   </tr>
                 )
               })
