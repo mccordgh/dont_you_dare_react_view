@@ -9,6 +9,7 @@ export default class EditableInput extends Component {
           type="text"
           data-index={this.props.index}
           onBlur={this.props.blurCallback}
+          onKeyUp={this.keyUpHandler}
           onInput={this.props.changeCallback}
           defaultValue={this.props.text}
         />)
@@ -19,5 +20,11 @@ export default class EditableInput extends Component {
         { inputOrSpan }
       </div>
     );
+  }
+
+  keyUpHandler = (event) => {
+    if (event.key === 'Enter') {
+      this.props.blurCallback(event, event.target.dataset.index);
+    }
   }
 }

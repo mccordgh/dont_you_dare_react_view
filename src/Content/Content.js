@@ -15,15 +15,13 @@ export default class Content extends Component {
         <List
           items={this.state.items}
           titleChange={this.titleChangeHandler}
-          descriptionChange={this.descriptionChangeHandler}
-          blurCallback={this.blurHandler}
+          blurCallback={this.blurHandler.bind(this)}
           completedCallback={this.completedChangeHandler}
           deleteCallback={this.deleteItem}
           editCallback={this.editItem}
         />
 
         <button onClick={this.addButtonHandler}>Add Item</button>
-        <button onClick={() => {console.log(this.state.items);}}>CHECKER</button>
       </div>
     );
   }
@@ -40,7 +38,6 @@ export default class Content extends Component {
     .then((data) => {
       data = data.map(item => Object.assign(item, {
         editingTitle: !item.title,
-        editingDescription: !item.description,
       }));
 
       this.setState({ items: data });
@@ -75,7 +72,6 @@ export default class Content extends Component {
     const item = this.state.items[index];
     const itemObj = {
       title: item.title,
-      description: item.description,
       completed: item.completed,
     }
 
@@ -109,7 +105,6 @@ export default class Content extends Component {
     const itemObj = {
       id: item._id,
       title: item.title,
-      description: item.description,
       completed: item.completed,
     }
 
@@ -124,15 +119,6 @@ export default class Content extends Component {
     .then((data) => {
       this.fetchItems();
     });
-  }
-
-  descriptionChangeHandler = (event) => {
-    const description = event.target.value;
-    const index = event.target.dataset.index;
-    const items = this.state.items;
-
-    items[index] = Object.assign(items[index], { description });
-    this.setState({ items });
   }
 
   completedChangeHandler = (event) => {
@@ -154,9 +140,7 @@ export default class Content extends Component {
         id: null,
         completed: false,
         title: '',
-        description: '',
         editingTitle: true,
-        editingDescription: true,
       })
 
       return { items: state.items }
@@ -165,12 +149,10 @@ export default class Content extends Component {
 
   editItem = (event) => {
     const index = event.target.dataset.index;
-    const keyToEdit = event.target.dataset.editable;
     const items = this.state.items;
 
     items[index] = Object.assign(items[index], {
-      editingTitle: keyToEdit === 'title',
-      editingDescription: keyToEdit === 'description',
+      editingTitle: true,
     });
 
     this.setState({items});

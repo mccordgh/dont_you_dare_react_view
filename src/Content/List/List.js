@@ -13,7 +13,6 @@ export default class List extends Component {
             <tr>
               <th>Completed</th>
               <th>Title</th>
-              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -38,29 +37,12 @@ export default class List extends Component {
                         editing={item.editingTitle}
                         index={index}
                       />
-                      <button
-                        onClick={this.props.editCallback}
-                        className="edit__item-button"
-                        data-index={index}
-                        data-editable="title"
-                      >
-                        edit
-                      </button>
                     </td>
-
                     <td>
-                      <EditableInput
-                        text={item.description}
-                        changeCallback={this.props.descriptionChange}
-                        blurCallback={this.props.blurCallback}
-                        editing={item.editingDescription}
-                        index={index}
-                      />
                       <button
                         onClick={this.props.editCallback}
                         className="edit__item-button"
                         data-index={index}
-                        data-editable="description"
                       >
                         edit
                       </button>
