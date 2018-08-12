@@ -12,6 +12,17 @@ td input[type="checkbox"] {
     transform: scale(2);
 }
 
+.delete__item-button {
+    background-color: darkred;
+    border-radius: 100%;
+    color: white;
+    display: block;
+    height: 1.6rem;
+    padding: 0;
+    text-align: center;
+    width: 1.6rem;
+}
+
 .list__wrapper {
     margin-bottom: 1rem;
 }

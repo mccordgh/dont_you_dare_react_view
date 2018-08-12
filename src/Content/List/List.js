@@ -20,7 +20,7 @@ export default class List extends Component {
             {
               this.props.items.map((item, index) => {
                 return (
-                  <tr key={index}>
+                  <tr className="list__row" key={index}>
                     <td>
                       <input
                         onInput={this.props.completedCallback}
