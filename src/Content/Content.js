@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import List from './List/List';
+
+import ItemRequests from '../Requests/item-requests';
 
 import './Content.css';
 
@@ -27,21 +28,7 @@ export default class Content extends Component {
   }
 
   componentWillMount() {
-    this.fetchItems();
-  }
-
-  fetchItems = () => {
-    fetch('http://localhost:8001/items', {
-      method: 'GET',
-    })
-    .then(response => response.json())
-    .then((data) => {
-      data = data.map(item => Object.assign(item, {
-        editingTitle: !item.title,
-      }));
-
-      this.setState({ items: data });
-    });
+    ItemRequests.getItems(this);
   }
 
   titleChangeHandler = (event) => {
@@ -61,64 +48,27 @@ export default class Content extends Component {
   }
 
   updateOrCreateItem(item, index) {
-    if (item._id) {
-      this.updateItem(index);
-    } else {
+    if (!item._id) {
       this.createItem(index)
+
+      return;
     }
+
+    this.updateItem(index);
   }
 
   createItem(index) {
-    const item = this.state.items[index];
-    const itemObj = {
-      title: item.title,
-      completed: item.completed,
-    }
-
-    fetch('http://localhost:8001/items', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(itemObj),
-    })
-    .then(response => response.json())
-    .then((data) => {
-      this.fetchItems();
-    });
+    ItemRequests.createItem(this, index);
   }
 
   deleteItem = (event) => {
     const index = event.target.dataset.index;
-    const item = this.state.items[index];
 
-    fetch(`http://localhost:8001/items/${item._id}`, {
-      method: 'DELETE',
-    })
-    .then((data) => {
-      this.fetchItems();
-    });
+    ItemRequests.deleteItem(this, index);
   }
 
   updateItem(index) {
-    const item = this.state.items[index];
-    const itemObj = {
-      id: item._id,
-      title: item.title,
-      completed: item.completed,
-    }
-
-    fetch(`http://localhost:8001/items/${item._id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(itemObj),
-    })
-    .then(response => response.json())
-    .then((data) => {
-      this.fetchItems();
-    });
+    ItemRequests.updateItem(this, index);
   }
 
   completedChangeHandler = (event) => {
