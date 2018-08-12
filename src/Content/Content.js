@@ -19,9 +19,11 @@ export default class Content extends Component {
           blurCallback={this.blurHandler}
           completedCallback={this.completedChangeHandler}
           deleteCallback={this.deleteItem}
+          editCallback={this.editItem}
         />
 
         <button onClick={this.addButtonHandler}>Add Item</button>
+        <button onClick={() => {console.log(this.state.items);}}>CHECKER</button>
       </div>
     );
   }
@@ -159,5 +161,18 @@ export default class Content extends Component {
 
       return { items: state.items }
     })
+  }
+
+  editItem = (event) => {
+    const index = event.target.dataset.index;
+    const keyToEdit = event.target.dataset.editable;
+    const items = this.state.items;
+
+    items[index] = Object.assign(items[index], {
+      editingTitle: keyToEdit === 'title',
+      editingDescription: keyToEdit === 'description',
+    });
+
+    this.setState({items});
   }
 }

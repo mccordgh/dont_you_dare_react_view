@@ -38,6 +38,14 @@ export default class List extends Component {
                         editing={item.editingTitle}
                         index={index}
                       />
+                      <button
+                        onClick={this.props.editCallback}
+                        className="edit__item-button"
+                        data-index={index}
+                        data-editable="title"
+                      >
+                        edit
+                      </button>
                     </td>
 
                     <td>
@@ -48,6 +56,14 @@ export default class List extends Component {
                         editing={item.editingDescription}
                         index={index}
                       />
+                      <button
+                        onClick={this.props.editCallback}
+                        className="edit__item-button"
+                        data-index={index}
+                        data-editable="description"
+                      >
+                        edit
+                      </button>
                     </td>
                     <td>
                       <button
