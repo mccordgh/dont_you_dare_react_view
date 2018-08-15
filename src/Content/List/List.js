@@ -15,12 +15,16 @@ export default class List extends Component {
                 return (
                   <tr className="list__row" key={index}>
                     <td>
-                      <input
-                        onInput={this.props.completedCallback}
+                      <button
+                        onClick={this.props.iDidItCallback}
                         data-index={index}
-                        type="checkbox"
-                        defaultChecked={item.completed}
-                      />
+                      >
+                        Oops! I did it
+                      </button>
+                    </td>
+
+                    <td>
+                      { item.completedCount } times
                     </td>
 
                     <td>

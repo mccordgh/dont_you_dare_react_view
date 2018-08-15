@@ -17,7 +17,7 @@ export default {
     const item = self.state.items[index];
     const itemObj = {
       title: item.title,
-      completed: item.completed,
+      completedCount: item.completedCount,
     }
 
     fetch('http://localhost:8001/items', {
@@ -28,7 +28,7 @@ export default {
       body: JSON.stringify(itemObj),
     })
     .then(response => response.json())
-    .then((data) => {
+    .then(() => {
       this.getItems(self);
     });
   },
@@ -36,12 +36,28 @@ export default {
   deleteItem(self, index) {
     const item = self.state.items[index];
 
-    fetch(`http://localhost:8001/items/${item._id}`, {
-      method: 'DELETE',
-    })
-    .then((data) => {
-      this.getItems(self);
-    });
+    const deleteLocally = () => {
+      self.setState(state => (
+        { items: state.items.filter(item => item !== state.items[index]) }
+      ));
+    }
+
+    const deleteOnServer = () => {
+      fetch(`http://localhost:8001/items/${item._id}`, {
+        method: 'DELETE',
+      })
+      .then(() => {
+        this.getItems(self);
+      });
+    }
+
+    if (!item._id) {
+      deleteLocally();
+
+      return;
+    }
+
+    deleteOnServer();
   },
 
   updateItem(self, index) {
@@ -49,7 +65,7 @@ export default {
     const itemObj = {
       id: item._id,
       title: item.title,
-      completed: item.completed,
+      completedCount: item.completedCount,
     }
 
     fetch(`http://localhost:8001/items/${item._id}`, {
@@ -60,7 +76,7 @@ export default {
       body: JSON.stringify(itemObj),
     })
     .then(response => response.json())
-    .then((data) => {
+    .then(() => {
       this.getItems(self);
     });
   }

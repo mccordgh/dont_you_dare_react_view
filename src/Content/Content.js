@@ -13,16 +13,17 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content__wrapper">
+        <h1> Don't you dare!! </h1>
         <List
           items={this.state.items}
           titleChange={this.titleChangeHandler}
           blurCallback={this.blurHandler.bind(this)}
-          completedCallback={this.completedChangeHandler}
+          iDidItCallback={this.iDidItHandler}
           deleteCallback={this.deleteItem}
           editCallback={this.editItem}
         />
 
-        <button onClick={this.addButtonHandler}>Add Item</button>
+        <button className="button__add-one" onClick={this.addButtonHandler}>Add Item</button>
       </div>
     );
   }
@@ -71,12 +72,12 @@ export default class Content extends Component {
     ItemRequests.updateItem(this, index);
   }
 
-  completedChangeHandler = (event) => {
+  iDidItHandler = (event) => {
     const index = event.target.dataset.index;
     const items = this.state.items;
     const item = this.state.items[index];
 
-    items[index] = Object.assign(items[index], { completed: !item.completed})
+    items[index] = Object.assign(items[index], { completedCount: item.completedCount + 1 })
     this.setState(() => {
       return { items };
     }, () => {
@@ -88,7 +89,7 @@ export default class Content extends Component {
     this.setState((state) => {
       state.items.push({
         id: null,
-        completed: false,
+        completedCount: 0,
         title: '',
         editingTitle: true,
       })
