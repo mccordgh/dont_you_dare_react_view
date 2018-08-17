@@ -12,7 +12,7 @@ export default class ListItem extends Component {
       <div className="list_item__wrapper">
 
         <div className="list_item--count-wrapper">
-          <h1 className="list_item--count">{ item.completedCount }x</h1>
+          { item.completedCount }
         </div>
 
         <div className="list_item--contents">
@@ -32,23 +32,23 @@ export default class ListItem extends Component {
                 data-index={this.props.index}
               >
                 edit
-              </button>
+            </button>
 
-              <button
-                onClick={this.props.deleteCallback}
-                className="list_item--button delete__item-button"
+            <button
+              onClick={this.props.deleteCallback}
+              className="list_item--button delete__item-button"
+              data-index={this.props.index}
+            >
+              X
+            </button>
+
+            <button
+                onClick={this.props.iDidItCallback}
+                className="list_item--button increment__item-button"
                 data-index={this.props.index}
               >
-                X
-              </button>
-
-              <button
-                  onClick={this.props.iDidItCallback}
-                  className="list_item--button increment__item-button"
-                  data-index={this.props.index}
-                >
-                  +
-              </button>
+                +
+            </button>
           </div>
         </div>
 

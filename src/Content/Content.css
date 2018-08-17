@@ -1,7 +1,33 @@
-.content__wrapper {
+/* button {
+    padding: 1rem 2rem;
+} */
+
+.button__add-one {
+    background-color: skyblue;
+    border-style: none;
+    border-radius: 5rem;
+    bottom: -1.2rem;
+    height: 2.5rem;
+    position: absolute;
+    width: 2.5rem;
+}
+
+.content--wrapper {
     padding: 1rem;
 }
 
-button {
-    padding: 1rem 2rem;
+.content_header--wrapper {
+    background-color: peru;
+    padding: 1rem 1rem 1.2rem;
+    position: relative;
+}
+
+.content_header--wrapper h1 {
+    margin: 0 0 0 3rem;
+    padding: 0;
+}
+
+.content_header--wrapper p {
+    margin: 0.2rem 0 0 4rem;
+    padding: 0;
 }

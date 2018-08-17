@@ -12,18 +12,23 @@ export default class Content extends Component {
 
   render() {
     return (
-      <div className="content__wrapper">
-        <h1>We all make mistakes... </h1>
-        <List
-          items={this.state.items}
-          titleChangeHandler={this.titleChangeHandler}
-          titleBlurHandler={this.titleBlurHandler.bind(this)}
-          iDidItCallback={this.iDidItHandler}
-          deleteCallback={this.deleteItem}
-          editCallback={this.editItem}
-        />
+      <div>
+        <div className="content_header--wrapper">
+          <h1>ToDon't List</h1>
+          <p>A collection of bad habits</p>
+          <button className="button__add-one" onClick={this.addButtonHandler}>+</button>
+        </div>
 
-        <button className="button__add-one" onClick={this.addButtonHandler}>Add Item</button>
+        <div className="content--wrapper">
+          <List
+            items={this.state.items}
+            titleChangeHandler={this.titleChangeHandler}
+            titleBlurHandler={this.titleBlurHandler.bind(this)}
+            iDidItCallback={this.iDidItHandler}
+            deleteCallback={this.deleteItem}
+            editCallback={this.editItem}
+          />
+        </div>
       </div>
     );
   }
