@@ -1,0 +1,61 @@
+.list_item__wrapper {
+    position: relative;
+}
+
+.list_item--contents {
+    /* border: 1px solid grey; */
+    /* border-radius: 0.4rem; */
+    display: inline-block;
+    margin: 0.2rem 0 0.2rem 0.4rem;
+    padding: 0.2rem;
+    width: calc(100% - 5.4rem);
+}
+
+.list_item--buttons {
+    margin-top: 0.4rem;
+    position: relative;
+    width: 100%;
+}
+
+.list_item--count-wrapper {
+    display: inline-block;
+    left: 0;
+    position: relative;
+    top: -1.7rem;
+    width: 4rem;
+}
+
+.list_item--count {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.list_item--button {
+    border-radius: 100%;
+    color: white;
+    display: block;
+    height: 1.6rem;
+    padding: 0;
+    text-align: center;
+    width: 1.6rem;
+}
+
+.edit__item-button {
+    background-color: forestgreen;
+    position: absolute;
+    left: 0;
+}
+
+.increment__item-button {
+    background-color: burlywood;
+    margin: 0 auto;
+}
+
+.delete__item-button {
+    background-color: darkred;
+    position: absolute;
+    right: 0;
+}
