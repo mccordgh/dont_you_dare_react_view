@@ -8,15 +8,15 @@ export default class EditableInput extends Component {
       ? (<input
           type="text"
           data-index={this.props.index}
-          onBlur={this.props.blurCallback}
+          onBlur={this.props.titleBlurHandler}
           onKeyUp={this.keyUpHandler}
-          onInput={this.props.changeCallback}
+          onInput={this.props.titleChangeHandler}
           defaultValue={this.props.text}
         />)
       : (<span data-index={this.props.index}>{ this.props.text }</span>)
 
     return (
-      <div>
+      <div className="editable_input--wrapper">
         { inputOrSpan }
       </div>
     );
