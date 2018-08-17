@@ -24,7 +24,7 @@ export default class EditableInput extends Component {
 
   keyUpHandler = (event) => {
     if (event.key === 'Enter') {
-      this.props.blurCallback(event, event.target.dataset.index);
+      this.props.titleBlurHandler(event, event.target.dataset.index);
     }
   }
 }

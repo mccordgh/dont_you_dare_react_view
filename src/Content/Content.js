@@ -13,11 +13,11 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content__wrapper">
-        <h1> Don't you dare!! </h1>
+        <h1>We all make mistakes... </h1>
         <List
           items={this.state.items}
-          titleChange={this.titleChangeHandler}
-          blurCallback={this.blurHandler.bind(this)}
+          titleChangeHandler={this.titleChangeHandler}
+          titleBlurHandler={this.titleBlurHandler.bind(this)}
           iDidItCallback={this.iDidItHandler}
           deleteCallback={this.deleteItem}
           editCallback={this.editItem}
@@ -41,7 +41,7 @@ export default class Content extends Component {
     this.setState({ items });
   }
 
-  blurHandler = (event) => {
+  titleBlurHandler = (event) => {
     const index = event.target.dataset.index;
     const item = this.state.items[index];
 
@@ -54,7 +54,6 @@ export default class Content extends Component {
 
       return;
     }
-
     this.updateItem(index);
   }
 
