@@ -16,7 +16,7 @@ export default class Content extends Component {
         <div className="content_header--wrapper">
           <h1>ToDon't List</h1>
           <p>A collection of bad habits</p>
-          <button className="button__add-one" onClick={this.addButtonHandler}>+</button>
+          <button className="button__add--new-item" onClick={this.addButtonHandler}>+</button>
         </div>
 
         <div className="content--wrapper">

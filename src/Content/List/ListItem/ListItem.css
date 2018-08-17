@@ -1,11 +1,9 @@
 .list_item__wrapper {
-    padding: 0.5rem;
+    border-bottom: 1px solid grey;
     position: relative;
 }
 
 .list_item--contents {
-    /* border: 1px solid grey; */
-    /* border-radius: 0.4rem; */
     display: inline-block;
     margin: 0.2rem 0 0.2rem 0.4rem;
     padding: 0.2rem;
@@ -16,6 +14,19 @@
     margin-top: 0.4rem;
     position: relative;
     width: 100%;
+}
+
+.list_item--increment-wrapper {
+    background-color: lightskyblue;
+    border-radius:5rem;
+    color: white;
+    display: inline-block;
+    height: 2.5rem;
+    left: 0;
+    position: relative;
+    text-align: center;
+    top: -1.7rem;
+    width: 2.5rem;
 }
 
 .list_item--count-wrapper {
@@ -54,14 +65,24 @@
     position: absolute;
     left: 0;
 }
-
+/*
 .increment__item-button {
     background-color: burlywood;
     margin: 0 auto;
-}
+} */
 
 .delete__item-button {
     background-color: darkred;
     position: absolute;
     right: 0;
+}
+
+.button__add-one {
+    background-color: skyblue;
+    border-style: none;
+    border-radius: 5rem;
+    /* bottom: -1.2rem; */
+    height: 2.5rem;
+    /* position: relative; */
+    width: 2.5rem
 }

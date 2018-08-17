@@ -10,6 +10,7 @@ export default class ListItem extends Component {
 
     return (
       <div className="list_item__wrapper">
+        <button className="button__add-one" onClick={this.addButtonHandler}>+</button>
 
         <div className="list_item--count-wrapper">
           { item.completedCount }
