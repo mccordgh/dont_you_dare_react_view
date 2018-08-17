@@ -1,65 +1,27 @@
 import React, { Component } from 'react';
 
-import EditableInput from '../../Input/EditableInput';
-
-import './List.css';
+import ListItem from './ListItem/ListItem';
 
 export default class List extends Component {
   render() {
     return (
       <div className="list__wrapper">
-        <table>
-          <tbody>
-            {
-              this.props.items.map((item, index) => {
-                return (
-                  <tr className="list__row" key={index}>
-                    <td>
-                      <button
-                        onClick={this.props.iDidItCallback}
-                        data-index={index}
-                      >
-                        Oops! I did it
-                      </button>
-                    </td>
-
-                    <td>
-                      { item.completedCount } times
-                    </td>
-
-                    <td>
-                      <EditableInput
-                        text={item.title}
-                        changeCallback={this.props.titleChange}
-                        blurCallback={this.props.blurCallback}
-                        editing={item.editingTitle}
-                        index={index}
-                      />
-                    </td>
-                    <td>
-                      <button
-                        onClick={this.props.editCallback}
-                        className="edit__item-button"
-                        data-index={index}
-                      >
-                        edit
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        onClick={this.props.deleteCallback}
-                        className="delete__item-button"
-                        data-index={index}
-                      >
-                        X
-                      </button>
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table>
+        {
+          this.props.items.map((item, index) => {
+            return (
+              <ListItem
+                key={index}
+                iDidItCallback={this.props.iDidItCallback}
+                titleChangeHandler={this.props.titleChangeHandler}
+                titleBlurHandler={this.props.titleBlurHandler}
+                editCallback={this.props.editCallback}
+                deleteCallback={this.props.deleteCallback}
+                index={index}
+                item={item}
+              />
+            )
+          })
+        }
       </div>
     );
   }

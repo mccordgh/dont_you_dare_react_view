@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import './List.css';
+import './EditableInput.css';
 
 export default class EditableInput extends Component {
   render() {
