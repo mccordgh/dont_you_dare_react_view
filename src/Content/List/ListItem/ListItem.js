@@ -15,7 +15,7 @@ export default class ListItem extends Component {
           onClick={this.props.IncrementItemCountHandler}
           data-index={this.props.index}
         >
-          <i className="fas fa-arrow-up"></i>
+          <i className="far fa-thumbs-up"></i>
         </button>
 
         <div className="list_item--count-wrapper">
@@ -37,7 +37,7 @@ export default class ListItem extends Component {
                 className="list_item--button edit__item-button"
                 data-index={this.props.index}
               >
-                <i className="far fa-edit"></i>
+                <i className="fas fa-pen"></i>
             </button>
 
             <button
@@ -45,7 +45,7 @@ export default class ListItem extends Component {
               className="list_item--button delete__item-button"
               data-index={this.props.index}
             >
-              <i className="far fa-minus-square"></i>
+              <i className="fas fa-times"></i>
             </button>
         </div>
       </div>

@@ -12,23 +12,25 @@
 }
 
 .content--wrapper {
+    font-family: 'Kalam', cursive;
     padding: 1rem 0.2rem;
 }
 
 .content_header--wrapper {
     background-color: #A5A357;
+    font-family: 'Kalam', cursive;
     padding: 1rem 1rem 1.2rem;
     position: relative;
 }
 
 .content_header--wrapper h1 {
-    color: white;
-    margin: 0 0 0 4rem;
+    color: #f2ef97;
+    margin: 0 0 0 4.8rem;
+    font-size: 2.4rem;
     padding: 0;
 }
 
 .content--wrapper p {
-    font-style: oblique;
-    margin: 0 0 -0.2rem 4.9rem;
+    margin: 0 0 -0.2rem 5.65rem;
     padding: 0;
 }

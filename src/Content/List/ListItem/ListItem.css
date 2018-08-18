@@ -1,6 +1,6 @@
 .list_item__wrapper {
     margin: 0.5rem 0;
-    padding: 1rem 4.8rem 1rem 0;
+    padding: 1rem 4.6rem 1rem 0;
     position: relative;
 }
 
@@ -13,9 +13,14 @@
 }
 
 .list_item--contents {
-    padding: 0.2rem 0 0.2rem 4.8rem;
     height: 100%;
+    padding: 0 0 0.2rem 5.6rem;
     width: 100%;
+}
+
+.list_item--contents span,
+.list_item--contents input {
+    font-family: 'Kalam', cursive;
 }
 
 .list_item--buttons {
@@ -38,25 +43,28 @@
 }
 
 .list_item--count-wrapper {
-    font-weight: bold;
-    left: 2.3rem;
+    background-color: #A5A357;
+    border: 1px solid #A5A357;
+    border-radius: 0.2rem;
+    color: #f2ef97;
+    left: 2.5rem;
     position: absolute;
     text-align: center;
-    top: 1.25rem;
+    top: 1.15rem;
     width: 2.5rem;
 }
 
 .button__add-one {
     background: none;
-    border: 0.2rem solid #4D8C1F;
+    border: none;
     border-radius: 0.2rem;
-    color: #4D8C1F;
-    font-size: 1rem;
+    color: #A5A357;
+    font-size: 1.4rem;
     height: 1.4rem;
     left: 0.65rem;
     position: absolute;
-    top: 1.05rem;
-    width: 1.4rem;;
+    top: 0.9rem;
+    width: 1.4rem;
 }
 
 .button__add-one i {
@@ -73,11 +81,12 @@
 .delete__item-button {
     color: #BF646D;
     right: 0;
-    top: 0.75rem;
+    top: 0.65rem;
 }
 
 .edit__item-button {
-    color: #A5A357;
+    color: #4D8C1F;
+    font-size: 1.1rem;
     right: 2rem;
-    top: 0.65rem;
+    top: 0.95rem;
 }
