@@ -13,7 +13,12 @@ export default class EditableInput extends Component {
           onInput={this.props.titleChangeHandler}
           defaultValue={this.props.text}
         />)
-      : (<span data-index={this.props.index}>{ this.props.text }</span>)
+      : (<span
+            className="editable_input--span"
+            data-index={this.props.index}
+        >
+          { this.props.text }
+        </span>)
 
     return (
       <div className="editable_input--wrapper">

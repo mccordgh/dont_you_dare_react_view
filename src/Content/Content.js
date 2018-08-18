@@ -15,16 +15,19 @@ export default class Content extends Component {
       <div>
         <div className="content_header--wrapper">
           <h1>ToDon't List</h1>
-          <p>A collection of bad habits</p>
-          <button className="button__add--new-item" onClick={this.addButtonHandler}>+</button>
+          <button className="button__add--new-item" onClick={this.addButtonHandler}>
+            <i className="fas fa-plus"></i>
+          </button>
         </div>
 
         <div className="content--wrapper">
+          <p>A collection of bad habits</p>
+
           <List
             items={this.state.items}
             titleChangeHandler={this.titleChangeHandler}
             titleBlurHandler={this.titleBlurHandler.bind(this)}
-            iDidItCallback={this.iDidItHandler}
+            IncrementItemCountHandler={this.IncrementItemCountHandler}
             deleteCallback={this.deleteItem}
             editCallback={this.editItem}
           />
@@ -76,7 +79,7 @@ export default class Content extends Component {
     ItemRequests.updateItem(this, index);
   }
 
-  iDidItHandler = (event) => {
+  IncrementItemCountHandler = (event) => {
     const index = event.target.dataset.index;
     const items = this.state.items;
     const item = this.state.items[index];

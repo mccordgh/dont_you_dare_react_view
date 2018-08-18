@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  background-color: #f2ef97;
+  height: 100%;
+}
+
 html, body, div {
   font-family: sans-serif;
   margin: 0;

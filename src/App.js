@@ -8,9 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="application__wrapper">
-        {/* <Navigation /> */}
         <Content />
-        {/* <Footer /> */}
       </div>
     );
   }

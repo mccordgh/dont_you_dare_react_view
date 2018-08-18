@@ -10,7 +10,13 @@ export default class ListItem extends Component {
 
     return (
       <div className="list_item__wrapper">
-        <button className="button__add-one" onClick={this.addButtonHandler}>+</button>
+        <button
+          className="button__add-one"
+          onClick={this.props.IncrementItemCountHandler}
+          data-index={this.props.index}
+        >
+          <i className="fas fa-arrow-up"></i>
+        </button>
 
         <div className="list_item--count-wrapper">
           { item.completedCount }
@@ -26,13 +32,12 @@ export default class ListItem extends Component {
             index={this.props.index}
           />
 
-          <div className="list_item--buttons">
             <button
                 onClick={this.props.editCallback}
                 className="list_item--button edit__item-button"
                 data-index={this.props.index}
               >
-                edit
+                <i className="far fa-edit"></i>
             </button>
 
             <button
@@ -40,69 +45,10 @@ export default class ListItem extends Component {
               className="list_item--button delete__item-button"
               data-index={this.props.index}
             >
-              X
+              <i className="far fa-minus-square"></i>
             </button>
-
-            <button
-                onClick={this.props.iDidItCallback}
-                className="list_item--button increment__item-button"
-                data-index={this.props.index}
-              >
-                +
-            </button>
-          </div>
         </div>
-
-
       </div>
-
-
-    //   <table>
-    //   <tbody>
-    //     <tr className="list__row" key={index}>
-    //       <td>
-    //         <button
-    //           onClick={this.props.iDidItCallback}
-    //           data-index={this.props.index}
-    //         >
-    //           Oops! I did it
-    //         </button>
-    //       </td>
-
-    //       <td>
-    //         { item.completedCount } times
-    //       </td>
-
-    //       <td>
-    //         <EditableInput
-    //           text={item.title}
-    //           changeCallback={this.props.titleChange}
-    //           blurCallback={this.props.blurCallback}
-    //           editing={item.editingTitle}
-    //           index={this.props.index}
-    //         />
-    //       </td>
-    //       <td>
-    //         <button
-    //           onClick={this.props.editCallback}
-    //           className="edit__item-button"
-    //           data-index={this.props.index}
-    //         >
-    //           edit
-    //         </button>
-    //       </td>
-    //       <td>
-    //         <button
-    //           onClick={this.props.deleteCallback}
-    //           className="delete__item-button"
-    //           data-index={this.props.index}
-    //         >
-    //           X
-    //         </button>
-    //       </td>
-    //     </tr>
-    //   </tbody>
-    // </table>
     )
   }
 }

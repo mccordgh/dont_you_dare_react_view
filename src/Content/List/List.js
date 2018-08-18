@@ -11,7 +11,7 @@ export default class List extends Component {
             return (
               <ListItem
                 key={index}
-                iDidItCallback={this.props.iDidItCallback}
+                IncrementItemCountHandler={this.props.IncrementItemCountHandler}
                 titleChangeHandler={this.props.titleChangeHandler}
                 titleBlurHandler={this.props.titleBlurHandler}
                 editCallback={this.props.editCallback}

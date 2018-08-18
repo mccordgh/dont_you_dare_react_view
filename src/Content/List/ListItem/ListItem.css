@@ -1,13 +1,21 @@
 .list_item__wrapper {
-    border-bottom: 1px solid grey;
+    margin: 0.5rem 0;
+    padding: 1rem 4.8rem 1rem 0;
     position: relative;
 }
 
+.list_item__wrapper::after {
+    border-bottom: 1px solid #a1cdb6;
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -0.3rem;
+}
+
 .list_item--contents {
-    display: inline-block;
-    margin: 0.2rem 0 0.2rem 0.4rem;
-    padding: 0.2rem;
-    width: calc(100% - 5.4rem);
+    padding: 0.2rem 0 0.2rem 4.8rem;
+    height: 100%;
+    width: 100%;
 }
 
 .list_item--buttons {
@@ -30,59 +38,46 @@
 }
 
 .list_item--count-wrapper {
-    background-color: lightskyblue;
-    border-radius:5rem;
-    color: white;
-    display: inline-block;
-    height: 2.5rem;
-    left: 0;
-    position: relative;
+    font-weight: bold;
+    left: 2.3rem;
+    position: absolute;
     text-align: center;
-    top: -1.7rem;
+    top: 1.25rem;
     width: 2.5rem;
 }
 
-.list_item--count {
-    display: inline-block;
-    font-size: 1.4rem;
-    margin: 0;
-    text-align: right;
-    width: 100%;
+.button__add-one {
+    background: none;
+    border: 0.2rem solid #4D8C1F;
+    border-radius: 0.2rem;
+    color: #4D8C1F;
+    font-size: 1rem;
+    height: 1.4rem;
+    left: 0.65rem;
+    position: absolute;
+    top: 1.05rem;
+    width: 1.4rem;;
+}
+
+.button__add-one i {
+    left: -0.35rem;
+    position: relative;
+    top: -0.1rem;
 }
 
 .list_item--button {
-    border-radius: 100%;
-    color: white;
-    display: block;
-    height: 1.6rem;
-    padding: 0;
-    text-align: center;
-    width: 1.6rem;
+    font-size: 1.6rem;
+    position: absolute;
+}
+
+.delete__item-button {
+    color: #BF646D;
+    right: 0;
+    top: 0.75rem;
 }
 
 .edit__item-button {
-    background-color: forestgreen;
-    position: absolute;
-    left: 0;
-}
-/*
-.increment__item-button {
-    background-color: burlywood;
-    margin: 0 auto;
-} */
-
-.delete__item-button {
-    background-color: darkred;
-    position: absolute;
-    right: 0;
-}
-
-.button__add-one {
-    background-color: skyblue;
-    border-style: none;
-    border-radius: 5rem;
-    /* bottom: -1.2rem; */
-    height: 2.5rem;
-    /* position: relative; */
-    width: 2.5rem
+    color: #A5A357;
+    right: 2rem;
+    top: 0.65rem;
 }
