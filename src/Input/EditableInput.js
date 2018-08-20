@@ -8,14 +8,13 @@ export default class EditableInput extends Component {
       ? (<input
           type="text"
           data-index={this.props.index}
-          onBlur={this.props.titleBlurHandler}
+          onBlur={() => {this.props.titleBlurHandler(this.props.index)}}
           onKeyUp={this.keyUpHandler}
-          onInput={this.props.titleChangeHandler}
+          onInput={(event) => {this.props.titleChangeHandler(this.props.index, event.target.value)}}
           defaultValue={this.props.text}
         />)
       : (<span
             className="editable_input--span"
-            data-index={this.props.index}
         >
           { this.props.text }
         </span>)
@@ -29,7 +28,7 @@ export default class EditableInput extends Component {
 
   keyUpHandler = (event) => {
     if (event.key === 'Enter') {
-      this.props.titleBlurHandler(event, event.target.dataset.index);
+      this.props.titleBlurHandler(this.props.index);
     }
   }
 }

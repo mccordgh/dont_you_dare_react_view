@@ -1,6 +1,6 @@
 .editable_input--wrapper {
     display: block;
-    width: 100%;
+    width: calc(100% - 2rem);
 }
 
 .editable_input--span {

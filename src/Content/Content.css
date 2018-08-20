@@ -18,7 +18,7 @@
 
 .content_header--wrapper {
     background-color: #A5A357;
-    border-bottom: 0.2rem dotted #BF646D;
+    border-bottom: 0.2rem solid #BF646D;
     font-family: 'Kalam', cursive;
     padding: 1rem 1rem 1.2rem;
     position: relative;

@@ -12,7 +12,7 @@ export default class ListItem extends Component {
       <div className="list_item__wrapper">
         <button
           className="button__add-one"
-          onClick={this.props.IncrementItemCountHandler}
+          onClick={() => {this.props.IncrementItemCountHandler(this.props.index)}}
           data-index={this.props.index}
         >
           <i className="far fa-thumbs-up"></i>
@@ -33,15 +33,14 @@ export default class ListItem extends Component {
           />
 
             <button
-                onClick={this.props.editCallback}
+                onClick={() => {this.props.editCallback(this.props.index)}}
                 className="list_item--button edit__item-button"
-                data-index={this.props.index}
               >
                 <i className="fas fa-pen"></i>
             </button>
 
             <button
-              onClick={this.props.deleteCallback}
+              onClick={() => {this.props.deleteCallback(this.props.index)}}
               className="list_item--button delete__item-button"
               data-index={this.props.index}
             >

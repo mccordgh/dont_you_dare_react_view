@@ -26,7 +26,7 @@ export default class Content extends Component {
           <List
             items={this.state.items}
             titleChangeHandler={this.titleChangeHandler}
-            titleBlurHandler={this.titleBlurHandler.bind(this)}
+            titleBlurHandler={this.titleBlurHandler}
             IncrementItemCountHandler={this.IncrementItemCountHandler}
             deleteCallback={this.deleteItem}
             editCallback={this.editItem}
@@ -40,17 +40,14 @@ export default class Content extends Component {
     ItemRequests.getItems(this);
   }
 
-  titleChangeHandler = (event) => {
-    const title = event.target.value;
-    const index = event.target.dataset.index;
+  titleChangeHandler = (index, title) => {
     const items = this.state.items;
 
     items[index] = Object.assign(items[index], { title });
     this.setState({ items });
   }
 
-  titleBlurHandler = (event) => {
-    const index = event.target.dataset.index;
+  titleBlurHandler = (index) => {
     const item = this.state.items[index];
 
     this.updateOrCreateItem(item, index);
@@ -69,9 +66,7 @@ export default class Content extends Component {
     ItemRequests.createItem(this, index);
   }
 
-  deleteItem = (event) => {
-    const index = event.target.dataset.index;
-
+  deleteItem = (index) => {
     ItemRequests.deleteItem(this, index);
   }
 
@@ -79,10 +74,9 @@ export default class Content extends Component {
     ItemRequests.updateItem(this, index);
   }
 
-  IncrementItemCountHandler = (event) => {
-    const index = event.target.dataset.index;
+  IncrementItemCountHandler = (index) => {
     const items = this.state.items;
-    const item = this.state.items[index];
+    const item = items[index];
 
     items[index] = Object.assign(items[index], { completedCount: item.completedCount + 1 })
     this.setState(() => {
@@ -105,8 +99,7 @@ export default class Content extends Component {
     })
   }
 
-  editItem = (event) => {
-    const index = event.target.dataset.index;
+  editItem = (index) => {
     const items = this.state.items;
 
     items[index] = Object.assign(items[index], {
