@@ -1,4 +1,5 @@
 div.application__wrapper {
     height: 100%;
+    position: relative;
     width: 100%;
 }

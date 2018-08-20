@@ -12,3 +12,17 @@ html, body, div {
   margin: 0;
   padding: 0;
 }
+
+button {
+  background: none;
+  border-style: none;
+}
+
+button:focus {
+  outline-color: #A5A357;
+  outline-style: solid;
+}
+
+#root {
+  height: 100%;
+}

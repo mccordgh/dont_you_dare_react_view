@@ -1,9 +1,9 @@
 .button__add--new-item {
-    background-color: #a1cdb6;
+    background-color: #4D8C1F;
     border-style: none;
     border-radius: 0.2rem;
-    bottom: -1.08rem;
-    color: white;
+    bottom: -1rem;
+    color: #f2ef97;
     font-size: 1.2rem;
     height: 2rem;
     left: 0.55rem;
@@ -18,6 +18,7 @@
 
 .content_header--wrapper {
     background-color: #A5A357;
+    border-bottom: 0.2rem dotted #BF646D;
     font-family: 'Kalam', cursive;
     padding: 1rem 1rem 1.2rem;
     position: relative;
@@ -26,11 +27,39 @@
 .content_header--wrapper h1 {
     color: #f2ef97;
     margin: 0 0 0 4.8rem;
+    font-family: 'Amatic SC', cursive;
     font-size: 2.4rem;
     padding: 0;
 }
 
 .content--wrapper p {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.2rem;
+    font-style: italic;
     margin: 0 0 -0.2rem 5.65rem;
     padding: 0;
+}
+
+@media only screen
+and (min-device-width : 1024px) {
+    .content--wrapper {
+        padding: 1rem 2rem;
+    }
+
+    .button__add--new-item {
+        bottom: -1.5rem;
+        height: 3rem;
+        left: 2rem;
+        width: 3rem;
+    }
+
+    .content_header--wrapper h1 {
+        margin: 0 0 0 8.4rem;
+        font-size: 3rem;
+    }
+
+    .content--wrapper p {
+        font-size: 1.6rem;
+        margin: 0 0 -0.2rem 7.65rem;
+    }
 }

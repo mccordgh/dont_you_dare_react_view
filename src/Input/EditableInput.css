@@ -6,3 +6,23 @@
 .editable_input--span {
     word-wrap: break-word;
 }
+
+.editable_input--wrapper input {
+    background-color: #f2ef97;
+    border: none;
+    border-bottom: 0.1rem solid #A5A357;
+    font-size: 1.2rem;
+    outline-color: #A5A357;
+    width: 100%;
+}
+
+@media only screen
+and (min-device-width : 1024px) {
+    .editable_input--span {
+        font-size: 1.2rem;
+    }
+
+    .editable_input--wrapper {
+        margin-left: 2rem;
+    }
+}
