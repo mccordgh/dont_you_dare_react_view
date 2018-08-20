@@ -1,6 +1,8 @@
+import API_URL from './api-url.js';
+
 export default {
   getItems(self) {
-    fetch('http://localhost:8001/items', {
+    fetch(`${API_URL}/items`, {
       method: 'GET',
     })
     .then(response => response.json())
@@ -20,7 +22,7 @@ export default {
       completedCount: item.completedCount,
     }
 
-    fetch('http://localhost:8001/items', {
+    fetch(`${API_URL}/items`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +45,7 @@ export default {
     }
 
     const deleteOnServer = () => {
-      fetch(`http://localhost:8001/items/${item._id}`, {
+      fetch(`${API_URL}/items/${item._id}`, {
         method: 'DELETE',
       })
       .then(() => {
@@ -68,7 +70,7 @@ export default {
       completedCount: item.completedCount,
     }
 
-    fetch(`http://localhost:8001/items/${item._id}`, {
+    fetch(`${API_URL}/items/${item._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
