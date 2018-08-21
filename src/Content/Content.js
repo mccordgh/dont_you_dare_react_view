@@ -8,19 +8,21 @@ import './Content.css';
 export default class Content extends Component {
   state = {
     items: [],
+    dataLoading: true,
   }
 
   render() {
-    return (
-      <div>
-        <div className="content_header--wrapper">
-          <h1>ToDon't List</h1>
-          <button className="button__add--new-item" onClick={this.addButtonHandler}>
-            <i className="fas fa-plus"></i>
-          </button>
-        </div>
-
-        <div className="content--wrapper">
+    const content = this.state.dataLoading
+    ? (
+      <div class="lds-ring">
+        <div>Our</div>
+        <div>Bad</div>
+        <div>Habits...</div>
+        <div>Fetching</div>
+      </div>
+    )
+    : (
+      <div className="content--wrapper">
           <p>A collection of bad habits</p>
 
           <List
@@ -32,12 +34,27 @@ export default class Content extends Component {
             editCallback={this.editItem}
           />
         </div>
+    );
+
+    return (
+      <div>
+        <div className="content_header--wrapper">
+          <h1>ToDon't List</h1>
+          { this.state.dataLoading ? ('') : (
+            <button className="button__add--new-item" onClick={this.addButtonHandler}>
+              <i className="fas fa-plus"></i>
+            </button>
+          ) }
+        </div>
+
+        { content }
+
       </div>
     );
   }
 
   componentWillMount() {
-    ItemRequests.getItems(this);
+    ItemRequests.getItems(this)
   }
 
   titleChangeHandler = (index, title) => {

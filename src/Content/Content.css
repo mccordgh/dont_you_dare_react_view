@@ -63,3 +63,46 @@ and (min-device-width : 1024px) {
         margin: 0 0 -0.2rem 7.65rem;
     }
 }
+
+/* LOADING SPINNER */
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    color: #4D8C1F;
+    display: block;
+    position: fixed;
+    width: 14rem;
+    height: 14rem;
+    font-size: 2rem;
+    left: calc(50% - 7rem);
+    top: calc(44% - 7rem);
+    margin: 6px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -6s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -4s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -2s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+

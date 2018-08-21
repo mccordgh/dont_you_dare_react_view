@@ -12,6 +12,7 @@ export default {
       }));
 
       self.setState({ items: data });
+      self.setState({dataLoading: false});
     });
   },
 
