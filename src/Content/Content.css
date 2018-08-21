@@ -1,5 +1,11 @@
+/*
+darker brown -> `#6B6938`
+darker red -> `#A74450`
+darker green -> `#336114`
+*/
+
 .button__add--new-item {
-    background-color: #4D8C1F;
+    background-color: #336114;
     border-style: none;
     border-radius: 0.2rem;
     bottom: -1rem;
@@ -17,8 +23,8 @@
 }
 
 .content_header--wrapper {
-    background-color: #A5A357;
-    border-bottom: 0.2rem solid #BF646D;
+    background-color: #6B6938;
+    border-bottom: 0.2rem solid #A74450;
     font-family: 'Kalam', cursive;
     padding: 1rem 1rem 1.2rem;
     position: relative;
@@ -74,7 +80,7 @@ and (min-device-width : 1024px) {
   }
   .lds-ring div {
     box-sizing: border-box;
-    color: #4D8C1F;
+    color: #336114;
     display: block;
     position: fixed;
     width: 14rem;

@@ -47,8 +47,8 @@
 }
 
 .list_item--count-wrapper {
-    background-color: #A5A357;
-    border: 1px solid #A5A357;
+    background-color: #6B6938;
+    border: 1px solid #6B6938;
     border-radius: 0.2rem;
     color: #f2ef97;
     left: 2.5rem;
@@ -62,7 +62,7 @@
     background: none;
     border: none;
     border-radius: 0.2rem;
-    color: #A5A357;
+    color: #6B6938;
     font-size: 1.4rem;
     height: 1.4rem;
     left: 0.65rem;
@@ -83,13 +83,13 @@
 }
 
 .delete__item-button {
-    color: #BF646D;
+    color: #A74450;
     right: 0;
     top: 0.65rem;
 }
 
 .edit__item-button {
-    color: #4D8C1F;
+    color: #336114;
     font-size: 1.1rem;
     right: 2rem;
     top: 0.95rem;
